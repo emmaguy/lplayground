@@ -1,7 +1,9 @@
 package emmaguy.l;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
+import android.transition.Transition;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,7 +33,7 @@ public class DetailActivity extends Activity {
         ImageView imageView = (ImageView) findViewById(R.id.detail_image_view);
         imageView.setViewName(VIEW_NAME_HEADER_IMAGE);
 
-        Picasso.with(this).load(url).fit().centerInside().into(imageView);
+        Picasso.with(this).load(url).fit().centerCrop().into(imageView);
 
         TextView textView = (TextView) findViewById(R.id.detail_text_view);
         textView.setText(title + "\n\n" + text);

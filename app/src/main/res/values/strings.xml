@@ -3,5 +3,7 @@
 
     <string name="app_name">L</string>
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_hierarchical_timing">HierarchicalTimingActivity</string>
 
 </resources>

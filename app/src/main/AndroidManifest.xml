@@ -20,12 +20,20 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RecyclerActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="emmaguy.l.MainActivity" />
+        </activity>
+        <activity
+            android:name=".HierarchicalTimingActivity"
+            android:label="@string/title_activity_hierarchical_timing" >
         </activity>
     </application>
 

@@ -12,7 +12,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             android:viewName="photo_hero"
             android:id="@+id/detail_image_view"/>
 
