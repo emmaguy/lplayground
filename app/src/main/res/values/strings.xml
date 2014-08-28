@@ -2,10 +2,10 @@
 <resources>
 
     <string name="app_name">L</string>
-    <string name="title_activity_detail">DetailActivity</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_hierarchical_timing">HierarchicalTimingActivity</string>
-    <string name="title_activity_consistent_choreography">ConsistentChoreographyActivity</string>
-    <string name="title_activity_consistent_chroeography2">ConsistentChroeography2Activity</string>
+    <string name="title_activity_main">Main Activity</string>
+    <string name="title_activity_detail">Recycler Detail Activity</string>
+    <string name="title_activity_hierarchical_timing">Hierarchical Timing</string>
+    <string name="title_activity_consistent_choreography">Consistent Choreography </string>
+    <string name="title_activity_consistent_choreography2">Consistent Choreography 2</string>
 
 </resources>

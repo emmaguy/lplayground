@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +44,11 @@ public class RecyclerActivity extends Activity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         mRecyclerView.setAdapter(adapter);
+
+        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.move_resize_image);
+
+        getWindow().setSharedElementEnterTransition(transition);
+        getWindow().setSharedElementExitTransition(transition);
 
         new RedditDownloader()
                 .retrieveLatestPostsFromReddit(getSubreddit(), getSortType(), getNumberToRequest(), new Action1<List<Post>>() {

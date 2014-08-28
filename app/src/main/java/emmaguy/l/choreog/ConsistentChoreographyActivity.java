@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.View;
 
 import emmaguy.l.R;
@@ -21,6 +24,11 @@ public class ConsistentChoreographyActivity extends Activity implements View.OnC
         findViewById(R.id.circle_2).setOnClickListener(this);
         findViewById(R.id.circle_3).setOnClickListener(this);
         findViewById(R.id.circle_4).setOnClickListener(this);
+
+        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.circular_reveal);
+
+        getWindow().setSharedElementEnterTransition(transition);
+        getWindow().setSharedElementExitTransition(transition);
     }
 
     @Override
