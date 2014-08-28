@@ -6,13 +6,15 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
         android:id="@+id/image_view"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:textColor="@android:color/white"
         android:layout_alignParentBottom="true"
         android:id="@+id/text_view"
         tools:text="lol"/>
