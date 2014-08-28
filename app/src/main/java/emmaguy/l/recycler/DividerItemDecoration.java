@@ -1,4 +1,4 @@
-package emmaguy.l;
+package emmaguy.l.recycler;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,4 +1,4 @@
-package emmaguy.l;
+package emmaguy.l.shared;
 
 import android.transition.Transition;
 

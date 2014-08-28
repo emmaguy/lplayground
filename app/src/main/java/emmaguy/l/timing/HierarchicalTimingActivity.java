@@ -1,10 +1,14 @@
-package emmaguy.l;
+package emmaguy.l.timing;
 
 import android.animation.Animator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.transition.Transition;
 import android.view.ViewPropertyAnimator;
+
+import emmaguy.l.R;
+import emmaguy.l.shared.AnimListener;
+import emmaguy.l.shared.TransListener;
 
 
 public class HierarchicalTimingActivity extends Activity {

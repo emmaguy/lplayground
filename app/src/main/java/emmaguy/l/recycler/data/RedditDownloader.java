@@ -1,8 +1,5 @@
-package emmaguy.l;
+package emmaguy.l.recycler.data;
 
-import android.app.Application;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.gson.GsonBuilder;
@@ -19,11 +16,7 @@ import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
-public class LApplication extends Application {
-
-    public static final String PREFS_NUMBER_TO_RETRIEVE = "number_to_retrieve";
-    public static final String PREFS_SORT_ORDER = "sort_order";
-    public static final String PREFS_CREATED_UTC = "created_utc";
+public class RedditDownloader {
 
     private final RestAdapter restAdapter = new RestAdapter.Builder()
             .setEndpoint("http://www.reddit.com/")
@@ -31,7 +24,6 @@ public class LApplication extends Application {
             .build();
 
     private final Reddit mRedditEndpoint = restAdapter.create(Reddit.class);
-
     private long mLatestCreatedUtc = 0;
 
     public void retrieveLatestPostsFromReddit(String subreddit, String sortType, int numberToRequest, final Action1<List<Post>> newPostsCallback) {
@@ -50,21 +42,17 @@ public class LApplication extends Application {
                     @Override
                     public void call(Post post) {
                         Log.d("L", "url: " + post.getUrl());
-                        if(!isDirectUrlToImage(post.getUrl())) {
+                        if (!isDirectUrlToImage(post.getUrl())) {
                             return;
                         }
 
-                        if (postIsNewerThanPreviouslyRetrievedPosts(post)) {
-                            Log.d("L", "Adding post: " + post.getTitle());
+                        Log.d("L", "Adding post: " + post.getTitle());
 
-                            newPosts.add(post);
+                        newPosts.add(post);
 
-                            if (post.getCreatedUtc() > mLatestCreatedUtc) {
-                                mLatestCreatedUtc = post.getCreatedUtc();
-                                Log.d("L", "updating mLatestCreatedUtc to: " + mLatestCreatedUtc);
-                            }
-                        } else {
-                            Log.d("L", "Ignoring post: " + post.getTitle());
+                        if (post.getCreatedUtc() > mLatestCreatedUtc) {
+                            mLatestCreatedUtc = post.getCreatedUtc();
+                            Log.d("L", "updating mLatestCreatedUtc to: " + mLatestCreatedUtc);
                         }
                     }
                 }, new Action1<Throwable>() {
@@ -77,10 +65,6 @@ public class LApplication extends Application {
                     public void call() {
                         Log.d("L", "Posts found: " + newPosts.size());
                         if (newPosts.size() > 0) {
-                            if (mLatestCreatedUtc > 0) {
-                                storeNewCreatedUtc(mLatestCreatedUtc);
-                            }
-
                             newPostsCallback.call(newPosts);
                         }
                     }
@@ -89,23 +73,5 @@ public class LApplication extends Application {
 
     private boolean isDirectUrlToImage(String url) {
         return url.endsWith(".jpg") || url.endsWith(".jpeg") || url.endsWith(".png");
-    }
-
-    private boolean postIsNewerThanPreviouslyRetrievedPosts(Post post) {
-        return post.getCreatedUtc() > getCreatedUtcOfPosts();
-    }
-
-    private void storeNewCreatedUtc(long createdAtUtc) {
-        Log.d("L", "storeNewCreatedUtc: " + createdAtUtc);
-
-        getSharedPreferences().edit().putLong(PREFS_CREATED_UTC, createdAtUtc).apply();
-    }
-
-    private SharedPreferences getSharedPreferences() {
-        return PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-    }
-
-    private long getCreatedUtcOfPosts() {
-        return 0;//getSharedPreferences().getLong(PREFS_CREATED_UTC, 0);
     }
 }

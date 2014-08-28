@@ -2,7 +2,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="emmaguy.l.DetailActivity">
+            tools:context="emmaguy.l.recycler.DetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

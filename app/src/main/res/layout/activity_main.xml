@@ -20,4 +20,10 @@
         android:id="@+id/button_hie_timing"
         android:text="Hierarchical Timing"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_cons_choreo"
+        android:text="Consistent Choreography"/>
+
 </LinearLayout>

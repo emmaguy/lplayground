@@ -1,4 +1,4 @@
-package emmaguy.l;
+package emmaguy.l.recycler;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import emmaguy.l.R;
 
 
 public class DetailActivity extends Activity {

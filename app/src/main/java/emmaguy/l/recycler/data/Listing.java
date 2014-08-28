@@ -1,4 +1,4 @@
-package emmaguy.l;
+package emmaguy.l.recycler.data;
 
 
 import com.google.gson.JsonDeserializationContext;

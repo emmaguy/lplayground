@@ -4,4 +4,6 @@
     <color name="primary_dark">#2a36b1</color>
     <color name="accent">#91a7ff</color>
     <color name="transparent_black">#57000000</color>
+    <color name="orange">#ff9800</color>
+    <color name="pale_blue">#00e5ff</color>
 </resources>

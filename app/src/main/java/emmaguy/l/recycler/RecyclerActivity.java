@@ -1,11 +1,9 @@
-package emmaguy.l;
+package emmaguy.l.recycler;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -20,10 +18,13 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import emmaguy.l.R;
+import emmaguy.l.recycler.data.Post;
+import emmaguy.l.recycler.data.RedditDownloader;
 import rx.functions.Action1;
 
 public class RecyclerActivity extends Activity {
-    private final String[] mSubreddits = new String[]{"pics"};
+    private final String[] mSubreddits = new String[]{"pics", "itookapicture"};
     private RecyclerView mRecyclerView;
 
     @Override
@@ -39,37 +40,28 @@ public class RecyclerActivity extends Activity {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
-        //mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(adapter);
 
-        getApp().retrieveLatestPostsFromReddit(getSubreddit(), getSortType(), getNumberToRequest(), new Action1<List<Post>>() {
-            @Override
-            public void call(List<Post> posts) {
-                adapter.addPosts(posts);
-            }
-        });
-    }
-
-    private LApplication getApp() {
-        return (LApplication) getApplicationContext();
+        new RedditDownloader()
+                .retrieveLatestPostsFromReddit(getSubreddit(), getSortType(), getNumberToRequest(), new Action1<List<Post>>() {
+                    @Override
+                    public void call(List<Post> posts) {
+                        adapter.addPosts(posts);
+                    }
+                });
     }
 
     private int getNumberToRequest() {
-        return 15;//Integer.parseInt(getSharedPreferences().getString(LApplication.PREFS_NUMBER_TO_RETRIEVE, "5"));
+        return 15;
     }
 
     private String getSortType() {
-        return getSharedPreferences().getString(LApplication.PREFS_SORT_ORDER, "new");
+        return "new";
     }
 
     private String getSubreddit() {
         return TextUtils.join("+", mSubreddits);
     }
-
-    private SharedPreferences getSharedPreferences() {
-        return PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-    }
-
 
     private class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
         private final List<Post> mItems = new ArrayList<Post>();

@@ -1,4 +1,4 @@
-package emmaguy.l;
+package emmaguy.l.recycler.data;
 
 public class Post {
     private final String mSubreddit;

@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context="emmaguy.l.choreog.ConsistentChoreographyActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/circle_layouts"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:paddingTop="10dp">
+
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/circle_1"
+            android:viewName="circle_1"
+            android:background="@drawable/circle"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"/>
+
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/circle_2"
+            android:viewName="circle_2"
+            android:background="@drawable/circle"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"/>
+
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/circle_3"
+            android:viewName="circle_3"
+            android:background="@drawable/circle"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"/>
+
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/circle_4"
+            android:viewName="circle_4"
+            android:background="@drawable/circle"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

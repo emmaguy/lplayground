@@ -5,5 +5,7 @@
     <string name="title_activity_detail">DetailActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_hierarchical_timing">HierarchicalTimingActivity</string>
+    <string name="title_activity_consistent_choreography">ConsistentChoreographyActivity</string>
+    <string name="title_activity_consistent_chroeography2">ConsistentChroeography2Activity</string>
 
 </resources>

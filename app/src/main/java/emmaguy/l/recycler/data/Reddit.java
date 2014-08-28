@@ -1,4 +1,4 @@
-package emmaguy.l;
+package emmaguy.l.recycler.data;
 
 import retrofit.http.GET;
 import retrofit.http.Path;
