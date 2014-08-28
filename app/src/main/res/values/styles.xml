@@ -6,6 +6,11 @@
         <item name="android:colorAccent">@color/accent</item>
 
         <item name="android:listDivider">@drawable/divider</item>
+
+        <item name="android:windowContentTransitions">true</item>
+
+        <item name="android:windowSharedElementEnterTransition">@transition/move_resize_image</item>
+        <item name="android:windowSharedElementExitTransition">@transition/move_resize_image</item>
     </style>
 
 </resources>

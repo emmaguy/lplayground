@@ -11,5 +11,4 @@
                                         android:scrollbarStyle="outsideOverlay"
                                         tools:context=".MainActivity">
 
-
 </android.support.v7.widget.RecyclerView>

@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">L</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
 </resources>

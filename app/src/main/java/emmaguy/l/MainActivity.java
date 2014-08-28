@@ -1,6 +1,8 @@
 package emmaguy.l;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -85,6 +87,7 @@ public class MainActivity extends Activity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             Post post = mItems.get(position);
 
+            holder.mImageView.setViewName(post.getPermalink()); // unique
             holder.mTextView.setText(post.getTitle());
             Picasso.with(MainActivity.this).load(post.getUrl()).fit().centerCrop().into(holder.mImageView);
         }
@@ -94,15 +97,32 @@ public class MainActivity extends Activity {
             return mItems.size();
         }
 
-        public class ViewHolder extends RecyclerView.ViewHolder {
+        public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             public TextView mTextView;
             public ImageView mImageView;
 
             public ViewHolder(View v) {
                 super(v);
 
+                v.setOnClickListener(this);
+
                 mTextView = (TextView) v.findViewById(R.id.text_view);
                 mImageView = (ImageView) v.findViewById(R.id.image_view);
+            }
+
+            @Override
+            public void onClick(View view) {
+                Post p = mItems.get(getPosition());
+
+                Intent i = new Intent(MainActivity.this, DetailActivity.class);
+                i.putExtra(DetailActivity.EXTRA_URL, p.getUrl());
+                i.putExtra(DetailActivity.EXTRA_SUBREDDIT, p.getSubreddit());
+                i.putExtra(DetailActivity.EXTRA_TITLE, p.getTitle());
+                i.putExtra(DetailActivity.EXTRA_TEXT, p.getDescription());
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, mImageView, DetailActivity.VIEW_NAME_HEADER_IMAGE);
+
+                startActivity(i, options.toBundle());
             }
         }
     }
