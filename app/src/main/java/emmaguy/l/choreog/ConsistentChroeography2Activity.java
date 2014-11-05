@@ -26,7 +26,7 @@ public class ConsistentChroeography2Activity extends Activity {
         mDistanceToMove = pxFromDp(50);
 
         View header = findViewById(R.id.header);
-        header.setViewName(CIRCLE_VIEW_NAME);
+        header.setTransitionName(CIRCLE_VIEW_NAME);
 
         getWindow().getEnterTransition().addListener(new TransListener() {
             @Override

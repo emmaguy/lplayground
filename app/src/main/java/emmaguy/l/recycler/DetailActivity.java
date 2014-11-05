@@ -1,9 +1,7 @@
 package emmaguy.l.recycler;
 
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
-import android.transition.Transition;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,7 +31,7 @@ public class DetailActivity extends Activity {
         String text = getIntent().getStringExtra(EXTRA_TEXT);
 
         ImageView imageView = (ImageView) findViewById(R.id.detail_image_view);
-        imageView.setViewName(VIEW_NAME_HEADER_IMAGE);
+        imageView.setTransitionName(VIEW_NAME_HEADER_IMAGE);
 
         Picasso.with(this).load(url).fit().centerCrop().into(imageView);
 

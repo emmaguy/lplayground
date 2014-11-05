@@ -3,12 +3,11 @@ package emmaguy.l.timing;
 import android.animation.Animator;
 import android.app.Activity;
 import android.os.Bundle;
-import android.transition.Transition;
+import android.os.Handler;
 import android.view.ViewPropertyAnimator;
 
 import emmaguy.l.R;
 import emmaguy.l.shared.AnimListener;
-import emmaguy.l.shared.TransListener;
 
 
 public class HierarchicalTimingActivity extends Activity {
@@ -22,17 +21,15 @@ public class HierarchicalTimingActivity extends Activity {
 
         setContentView(R.layout.activity_hierarchical_timing);
 
-        getWindow().getEnterTransition().addListener(new TransListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onTransitionEnd(Transition transition) {
-                getWindow().getEnterTransition().removeListener(this);
-
+            public void run() {
                 for (int i = 0; i < NUM_VIEWS; i++) {
                     int resID = getResources().getIdentifier("view_" + (i + 1), "id", getPackageName());
                     findViewById(resID).animate().setStartDelay(i * SCALE_ITEM_ANIMATION_DELAY).scaleX(1).scaleY(1);
                 }
             }
-        });
+        }, 500);
     }
 
     @Override

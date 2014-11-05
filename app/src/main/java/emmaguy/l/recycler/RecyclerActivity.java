@@ -12,7 +12,6 @@ import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -93,7 +92,7 @@ public class RecyclerActivity extends Activity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             Post post = mItems.get(position);
 
-            holder.mImageView.setViewName(post.getPermalink()); // unique
+            holder.mImageView.setTransitionName(post.getPermalink()); // unique
             holder.mTextView.setText(post.getTitle());
             Picasso.with(RecyclerActivity.this).load(post.getUrl()).fit().centerCrop().into(holder.mImageView);
         }
