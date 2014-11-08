@@ -20,7 +20,7 @@
         </activity>
         <activity
             android:name=".recycler.RecyclerActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_recycler_main" >
         </activity>
         <activity
             android:name=".recycler.DetailActivity"
@@ -39,7 +39,7 @@
             android:label="@string/title_activity_consistent_choreography" >
         </activity>
         <activity
-            android:name=".choreog.ConsistentChroeography2Activity"
+            android:name=".choreog.ConsistentChoreography2Activity"
             android:label="@string/title_activity_consistent_choreography2"
             android:parentActivityName=".choreog.ConsistentChoreographyActivity" >
             <meta-data

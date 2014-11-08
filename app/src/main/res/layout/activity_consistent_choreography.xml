@@ -1,16 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context="emmaguy.l.choreog.ConsistentChoreographyActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="emmaguy.l.choreog.ConsistentChoreographyActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:id="@+id/circle_layouts"
         android:gravity="center"
@@ -22,40 +22,44 @@
             android:layout_height="64dp"
             android:id="@+id/circle_1"
             android:transitionName="circle_1"
-            android:background="@drawable/circle"/>
+            android:background="@drawable/circle"
+            android:elevation="4dp" />
 
         <View
             android:layout_width="10dp"
-            android:layout_height="1dp"/>
+            android:layout_height="1dp" />
 
         <View
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:id="@+id/circle_2"
             android:transitionName="circle_2"
-            android:background="@drawable/circle"/>
+            android:background="@drawable/circle"
+            android:elevation="4dp" />
 
         <View
             android:layout_width="10dp"
-            android:layout_height="1dp"/>
+            android:layout_height="1dp" />
 
         <View
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:id="@+id/circle_3"
             android:transitionName="circle_3"
-            android:background="@drawable/circle"/>
+            android:background="@drawable/circle"
+            android:elevation="4dp" />
 
         <View
             android:layout_width="10dp"
-            android:layout_height="1dp"/>
+            android:layout_height="1dp" />
 
         <View
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:id="@+id/circle_4"
             android:transitionName="circle_4"
-            android:background="@drawable/circle"/>
+            android:background="@drawable/circle"
+            android:elevation="4dp" />
 
     </LinearLayout>
 

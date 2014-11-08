@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">L</string>
+    <string name="app_name">Lollipop</string>
     <string name="title_activity_main">Main Activity</string>
+    <string name="title_activity_recycler_main">Recycler Main Activity</string>
     <string name="title_activity_detail">Recycler Detail Activity</string>
     <string name="title_activity_hierarchical_timing">Hierarchical Timing</string>
     <string name="title_activity_consistent_choreography">Consistent Choreography </string>
     <string name="title_activity_consistent_choreography2">Consistent Choreography 2</string>
+    <string name="recycler_view">Recycler View</string>
+    <string name="hierarchical_timing">Hierarchical Timing</string>
+    <string name="consistent_choreography">Consistent Choreography</string>
 
 </resources>
